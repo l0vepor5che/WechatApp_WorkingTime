@@ -1,13 +1,12 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<view class="page-body">
+  <view class="page-section">
+    <view class="weui-cells__title">数字输入的input</view>
+    <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">款式</view>
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" type="number" maxlength="6" placeholder="这是一个数字输入框" />
+      </view>
+    </view>
   </view>
 </view>

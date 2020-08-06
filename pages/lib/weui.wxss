@@ -87,6 +87,10 @@ icon {
   -webkit-align-items: flex-start;
           align-items: flex-start;
 }
+.weui-cell__hd{
+  position: relative;
+  padding-right: 16px;
+}
 .weui-cell__bd {
   -webkit-box-flex: 1;
   -webkit-flex: 1;

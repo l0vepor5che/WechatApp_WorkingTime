@@ -4,3 +4,11 @@
 .page-section{
   margin-bottom: 20rpx;
 }
+
+.checkbox{
+  margin-right: 10px;
+}
+
+.btn-container{
+  margin: 0.392156863em 5px 0.1em;
+}

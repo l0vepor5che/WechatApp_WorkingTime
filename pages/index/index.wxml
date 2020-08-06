@@ -1,12 +1,96 @@
 <!--index.wxml-->
 <view class="page-body">
-  <view class="page-section">
-    <view class="weui-cells__title">数字输入的input</view>
-    <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell">款式</view>
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" type="number" maxlength="6" placeholder="这是一个数字输入框" />
-      </view>
-    </view>
-  </view>
+	<view class="page-section">
+
+		<view class="weui-cells__title">本周时长设置</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-cell">每日规定时长</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input class="weui-input" type="digit" maxlength="6" placeholder="请输入时长" value="{{requiredWorkingHours}}" bindinput="inputWorkingHourChanged" />
+				</view>
+			</view>
+		</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-cell">本周工作天数</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker mode="selector" value="{{totalWorkDayIndex}}" range="{{totalWorkDayArray}}" bindchange="totalWorkDayChanged">
+						<view class="weui-input">{{totalWorkDayArray[totalWorkDayIndex]}}</view>
+					</picker>
+				</view>
+				<!-- <label class="checkbox">
+					<checkbox value="cb" checked="true" />休假
+				</label> -->
+				<!-- <view class="icon-small-wrp">
+					<icon class="icon-small" type="cancel" bindtap="deleteOneRecord"></icon>
+				</view> -->
+			</view>
+		</view>
+
+		<view class="weui-cells__title">已完成工作时长</view>
+		<block wx:for="{{workDurationArray}}" wx:for-item="itemName">
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_input">
+					<view class="weui-cell__hd">
+						<view class="weui-cell">{{itemName.title}}</view>
+					</view>
+					<view class="weui-cell__bd">
+						<input class="weui-input" type="digit" maxlength="6" placeholder="请输入时长" data-index="{{itemName.id}}" value="{{itemName.duration}}" bindinput="dayWorkingHoursChanged"/>
+					</view>
+				</view>
+			</view>
+		</block>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-cell">今日上班时间</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker mode="time" value="{{goToWorkTime}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+						<view class="weui-input">{{goToWorkTime}}</view>
+					</picker>
+				</view>
+				<!-- <label class="checkbox">
+						<checkbox value="cb" checked="true" />选中
+					</label> -->
+			</view>
+		</view>
+
+
+		<view class="weui-cells__title">计算结果（今日为本周最后工作日）</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-cell">本周剩余时长</view>
+				</view>
+				<view class="weui-cell__bd">
+					<label class=".weui-label" />{{remainingWorkingHours}}
+				</view>
+			</view>
+		</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-cell">今日最早下班</view>
+				</view>
+				<view class="weui-cell__bd">
+					<label class=".weui-label" />{{getOffWorkTime}}
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="weui-btn-area">
+		<view class="btn-container">
+			<button type="primary" bindtap="calcGetOffTimeResult">计算</button>
+		</view>
+		<!-- <view class="btn-container">
+			<button type="default">重填</button>
+		</view> -->
+	</view>
 </view>

@@ -64,36 +64,35 @@ Page({
   //今日上班时间改变后触发
   bindTimeChange: function (e) {
     this.setData({
-      time: e.detail.value
+      goToWorkTime: e.detail.value
     })
   },
 
   //点击按钮后触发，计算剩余时长和下班时间结果
   calcGetOffTimeResult: function () {
-    //goToWorkTime
-    //workDurationArray: [{ id: 1, title: "第1日在岗时长", duration: ""}]
     var requiredHours = this.data.requiredWorkingHours;
     var wdArray = this.data.workDurationArray;
-    var todayGoToWorkTime = this.data.goToWorkTime;
+    var lsTodayTime = this.data.goToWorkTime.split(":");
+    var todayTimeHour = lsTodayTime[0];
+    var todayTimeMinute = lsTodayTime[1];
     var earningHours = 0;
     for (var i = 0; i < wdArray.length; i++) {
       var dur = wdArray[i].duration;
       if (parseFloat(dur) > 0) earningHours = parseFloat(earningHours) + parseFloat(dur) - parseFloat(requiredHours);
     }
-
     var resultRemainingHours = (parseFloat(requiredHours) - parseFloat(earningHours)).toFixed(2);
-
     var startTime = new Date();
-    startTime.setHours(8);
-    startTime.setMinutes(0);
+    startTime.setHours(parseInt(todayTimeHour));
+    startTime.setMinutes(parseInt(todayTimeMinute));
+    startTime.setSeconds(1);
+    startTime.setMilliseconds(0);
     var tmp = startTime.getTime();
     console.log("tmp Before:" + tmp);
-    tmp = parseInt(tmp) + parseFloat(resultRemainingHours) * 3600 * 1000;
+    tmp = parseInt(tmp) + parseFloat(resultRemainingHours) * 3600 * 1000 ;
     console.log("tmp After:" + tmp);
     var endTime = new Date(tmp);
     var strEndTime = this.PrefixInteger(parseInt(endTime.getHours()), 2) + ":" + this.PrefixInteger(parseInt(endTime.getMinutes()), 2);
     console.log(strEndTime);
-
     this.setData({
       remainingWorkingHours: resultRemainingHours,
       getOffWorkTime: strEndTime
@@ -103,6 +102,17 @@ Page({
   // num传入的数字，n需要的字符长度
   PrefixInteger: function (num, n) {
     return (Array(n).join(0) + num).slice(-n);
-  }
+  },
 
+  //重填按钮触发
+  resetAll: function(){
+    this.setData({
+      workDurationArray : new Array,
+    })
+    this.updateworkDurationArray();
+    this.setData({
+      remainingWorkingHours: 0,
+      getOffWorkTime: ''
+    })
+  }
 })

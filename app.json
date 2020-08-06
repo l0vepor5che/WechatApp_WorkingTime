@@ -1,13 +1,29 @@
 {
-  "pages":[
-    "pages/index/index"
+  "pages": [
+    "pages/index/index",
+    "pages/description/description"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon_workhours.png",
+        "selectedIconPath": "images/icon_workhours_HL.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/description/description",
+        "iconPath": "images/icon_description.png",
+        "selectedIconPath": "images/icon_description_HL.png",
+        "text": "说明"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "上下班时间",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

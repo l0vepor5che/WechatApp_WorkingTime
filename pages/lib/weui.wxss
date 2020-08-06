@@ -56,7 +56,7 @@ icon {
   font-size: 14px;
 }
 .weui-cell {
-  padding: 10px 15px;
+  padding: 10px 12px;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -92,6 +92,7 @@ icon {
   padding-right: 16px;
 }
 .weui-cell__bd {
+  text-align: right;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;

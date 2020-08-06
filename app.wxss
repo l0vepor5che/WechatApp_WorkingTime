@@ -14,8 +14,55 @@ page {
   font-size: 32rpx;
   line-height: 1.6;
 }
-
+.page-head{
+  /* padding: 30px 25px 40px; */
+  padding: 30px 25px 40px;
+  text-align: center;
+}
+.page-head-title {
+  display: inline-block;
+  /* padding: 0 20px 10px 20px;
+  font-size: 16px; */
+  padding: 0 20px 10px 20px;
+  font-size: 16px;
+}
+.page-head-line{
+  margin: 0 auto;
+  /* width: 75px;
+  height: 1px; */
+  width: 75px;
+  height: 1px;
+  background-color: #7B7B7B;
+}
+.page-head-desc{
+  padding-top: 10px;
+  color: #7B7B7B;
+  font-size: 16px;
+}
 .page-body {
   padding: 20rpx 0;
 }
 
+.page-section{
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.page-section-title{
+  font-size: 14px;
+  color: #7B7B7B;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  text-align: center;
+  height: 100%;
+}
+
+.page-foot{
+  text-align: center;
+  color: #1aad19;
+  font-size: 12px;
+}

@@ -33,7 +33,7 @@
 		</view>
 
 		<view class="weui-cells__title">已完成工作时长</view>
-		<block wx:for="{{workDurationArray}}" wx:for-item="itemName">
+		<block wx:for="{{workDurationArray}}" wx:key = "itemKey" wx:for-item="itemName">
 			<view class="weui-cells weui-cells_after-title">
 				<view class="weui-cell weui-cell_input">
 					<view class="weui-cell__hd">
@@ -89,8 +89,12 @@
 		<view class="btn-container">
 			<button type="primary" bindtap="calcGetOffTimeResult">计算</button>
 		</view>
-		<!-- <view class="btn-container">
-			<button type="default">重填</button>
-		</view> -->
+		<view class="btn-container">
+			<button type="default" bindtap="resetAll">重填</button>
+		</view>
 	</view>
+
+	<navigator class="page-foot" openType="switchTab" url="../description/description" hover-class="none">
+    使用说明
+  </navigator>
 </view>

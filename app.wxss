@@ -16,7 +16,7 @@ page {
 }
 .page-head{
   /* padding: 30px 25px 40px; */
-  padding: 30px 25px 40px;
+  padding: 30px 25px 20px;
   text-align: center;
 }
 .page-head-title {
@@ -61,8 +61,27 @@ page {
   height: 100%;
 }
 
+.page-section-content{
+  font-size: 14px;
+  color: #7B7B7B;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  height: 100%;
+}
+
 .page-foot{
   text-align: center;
   color: #1aad19;
   font-size: 12px;
+}
+
+.line-tips-warning{
+  font-weight: 700;
+  text-align: center;
+  color: #FA5151;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

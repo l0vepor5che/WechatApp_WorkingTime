@@ -2,6 +2,9 @@
 <view class="page-body">
 	<view class="page-section">
 
+		<!-- <navigator class="page-foot" openType="switchTab" url="../description/description" hover-class="none">
+			使用说明
+		</navigator> -->
 		<view class="weui-cells__title">本周时长设置</view>
 		<view class="weui-cells weui-cells_after-title">
 			<view class="weui-cell weui-cell_input">
@@ -33,14 +36,14 @@
 		</view>
 
 		<view class="weui-cells__title">已完成工作时长</view>
-		<block wx:for="{{workDurationArray}}" wx:key = "itemKey" wx:for-item="itemName">
+		<block wx:for="{{workDurationArray}}" wx:key="itemKey" wx:for-item="itemName">
 			<view class="weui-cells weui-cells_after-title">
 				<view class="weui-cell weui-cell_input">
 					<view class="weui-cell__hd">
 						<view class="weui-cell">{{itemName.title}}</view>
 					</view>
 					<view class="weui-cell__bd">
-						<input class="weui-input" type="digit" maxlength="6" placeholder="请输入时长" data-index="{{itemName.id}}" value="{{itemName.duration}}" bindinput="dayWorkingHoursChanged"/>
+						<input class="weui-input" type="digit" maxlength="6" placeholder="请输入时长" data-index="{{itemName.id}}" value="{{itemName.duration}}" bindinput="dayWorkingHoursChanged" />
 					</view>
 				</view>
 			</view>
@@ -48,10 +51,10 @@
 		<view class="weui-cells weui-cells_after-title">
 			<view class="weui-cell weui-cell_input">
 				<view class="weui-cell__hd">
-					<view class="weui-cell">今日上班时间</view>
+					<view class="weui-cell">当日上班时间</view>
 				</view>
 				<view class="weui-cell__bd">
-					<picker mode="time" value="{{goToWorkTime}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+					<picker mode="time" value="{{goToWorkTime}}" start="{{constEarliestOnDutyTime}}" end="{{constLatestOnDutyTime}}" bindchange="bindTimeChange">
 						<view class="weui-input">{{goToWorkTime}}</view>
 					</picker>
 				</view>
@@ -62,7 +65,7 @@
 		</view>
 
 
-		<view class="weui-cells__title">计算结果（今日为本周最后工作日）</view>
+		<view class="weui-cells__title">计算结果（当日为本周最后工作日）</view>
 		<view class="weui-cells weui-cells_after-title">
 			<view class="weui-cell weui-cell_input">
 				<view class="weui-cell__hd">
@@ -76,7 +79,7 @@
 		<view class="weui-cells weui-cells_after-title">
 			<view class="weui-cell weui-cell_input">
 				<view class="weui-cell__hd">
-					<view class="weui-cell">今日最早下班</view>
+					<view class="weui-cell">当日最早下班</view>
 				</view>
 				<view class="weui-cell__bd">
 					<label class=".weui-label" />{{getOffWorkTime}}
@@ -85,16 +88,14 @@
 		</view>
 	</view>
 
+	<view class="line-tips-warning">结果仅供参考，请以考勤系统为准</view>
 	<view class="weui-btn-area">
 		<view class="btn-container">
-			<button type="primary" bindtap="calcGetOffTimeResult">计算</button>
+			<button type="primary" bindtap="calcGetOffTimeResult">计算时长</button>
 		</view>
 		<view class="btn-container">
-			<button type="default" bindtap="resetAll">重填</button>
+			<button type="default" bindtap="resetAll">清空重填</button>
 		</view>
 	</view>
 
-	<navigator class="page-foot" openType="switchTab" url="../description/description" hover-class="none">
-    使用说明
-  </navigator>
 </view>

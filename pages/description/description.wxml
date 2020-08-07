@@ -5,13 +5,11 @@
 
 <view class="page-body">
 	<view class="page-section">
-		<view class="page-section-title">该工具用于计算本周最后一个工作日的最早下班时间。</view>
-    <view class="page-section-title"><br/></view>
-    <view class="page-section-title">操作步骤：</view>
+		<view class="page-section-title">操作步骤：</view>
 		<view class="page-section-title">1、按实际情况设置规定时长与本周工作天数</view>
 		<view class="page-section-title">2、填入每天的工作时长及最后一日上班时间</view>
 		<view class="page-section-title">3、确认无误后点击“计算”得到最终结果</view>
-    <view class="page-section-title"><br/></view>
+		<view class="page-section-title"><br /></view>
 		<view class="page-section-title">by TH</view>
 	</view>
 </view>

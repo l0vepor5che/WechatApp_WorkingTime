@@ -9,13 +9,13 @@
         "pagePath": "pages/index/index",
         "iconPath": "images/icon_workhours.png",
         "selectedIconPath": "images/icon_workhours_HL.png",
-        "text": "主页"
+        "text": "时长计算"
       },
       {
         "pagePath": "pages/description/description",
         "iconPath": "images/icon_description.png",
         "selectedIconPath": "images/icon_description_HL.png",
-        "text": "说明"
+        "text": "使用说明"
       }
     ]
   },
